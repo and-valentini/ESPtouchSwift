@@ -5,6 +5,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var espTouchNetworkDelegate = ESPTouchNetworkDelegate()
+    private var reachability:Reachability!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -28,12 +29,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    func updateNetworkInfo() {
         if let vc = self.window?.rootViewController as? ViewController{
             vc.ssidInputText.text = espTouchNetworkDelegate.fetchSsid()
             vc.bssid = espTouchNetworkDelegate.fetchBssid()
         }
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        do {
+            Network.reachability = try Reachability(hostname: "www.google.com")
+            do {
+                try Network.reachability?.start()
+            } catch let error as Network.Error {
+                print(error)
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .flagsChanged, object: Network.reachability)
+    }
+    
+    @objc func reachabilityChanged(notification:Notification) {
+        let reachability = notification.object as! Reachability
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Network not reachable")
+        }
+        self.updateNetworkInfo()
+    }
+    
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

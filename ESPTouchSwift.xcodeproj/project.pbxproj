@@ -28,6 +28,7 @@
 		D8190D1720A4B5A000802DCC /* ESPTouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8190D1620A4B5A000802DCC /* ESPTouchController.swift */; };
 		D8A1D24220A5D709003B9BA8 /* ESPTouchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1D24120A5D709003B9BA8 /* ESPTouchControllerDelegate.swift */; };
 		D8A1D24420A5D785003B9BA8 /* ESPTouchNetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1D24320A5D785003B9BA8 /* ESPTouchNetworkDelegate.swift */; };
+		D8C6E9D120AB266100E3E225 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C6E9D020AB266100E3E225 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		D8190D1620A4B5A000802DCC /* ESPTouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchController.swift; sourceTree = "<group>"; };
 		D8A1D24120A5D709003B9BA8 /* ESPTouchControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchControllerDelegate.swift; sourceTree = "<group>"; };
 		D8A1D24320A5D785003B9BA8 /* ESPTouchNetworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchNetworkDelegate.swift; sourceTree = "<group>"; };
+		D8C6E9D020AB266100E3E225 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		156AB5FF1FFD062B004A60E3 /* ESPTouchSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D8C6E9D020AB266100E3E225 /* Reachability.swift */,
 				15DAE9251FFD38DE00E710F7 /* EspTouch */,
 				156AB6001FFD062B004A60E3 /* AppDelegate.swift */,
 				156AB6021FFD062B004A60E3 /* ViewController.swift */,
@@ -275,6 +278,7 @@
 			files = (
 				156AB63B1FFD0919004A60E3 /* ESPTouchTaskParameter.m in Sources */,
 				156AB6381FFD0919004A60E3 /* ESP_CRC8.m in Sources */,
+				D8C6E9D120AB266100E3E225 /* Reachability.swift in Sources */,
 				156AB6451FFD0919004A60E3 /* ESP_ByteUtil.m in Sources */,
 				156AB6031FFD062B004A60E3 /* ViewController.swift in Sources */,
 				156AB6431FFD0919004A60E3 /* ESP_WifiUtil.m in Sources */,
