@@ -28,15 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
-    func updateNetworkInfo() {
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
         if let vc = self.window?.rootViewController as? ViewController{
             vc.ssidInputText.text = espTouchNetworkDelegate.fetchSsid()
             vc.bssid = espTouchNetworkDelegate.fetchBssid()
         }
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
         do {
             Network.reachability = try Reachability(hostname: "www.google.com")
             do {
@@ -63,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("Network not reachable")
         }
-        self.updateNetworkInfo()
     }
     
 
