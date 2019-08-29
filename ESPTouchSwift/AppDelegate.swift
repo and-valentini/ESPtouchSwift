@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var reachability:Reachability!
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         espTouchNetworkDelegate.tryOpenNetworkPermission()
         
         return true

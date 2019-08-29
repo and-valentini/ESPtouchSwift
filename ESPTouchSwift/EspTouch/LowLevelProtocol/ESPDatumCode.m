@@ -34,8 +34,8 @@
         NSData *apSsidBytesData = [ESP_ByteUtil getBytesByNSString:apSsid];
         Byte apPwdBytes[[apPwdBytesData length]];
         Byte apSsidBytes[[apSsidBytesData length]];
-        [apPwdBytesData getBytes:apPwdBytes];
-        [apSsidBytesData getBytes:apSsidBytes];
+        [apPwdBytesData getBytes:apPwdBytes length:1024];
+        [apSsidBytesData getBytes:apSsidBytes length:1024];
         Byte apPwdLen = [apPwdBytesData length];
         ESP_CRC8 *crc = [[ESP_CRC8 alloc]init];
         [crc updateWithBuf:apSsidBytes Nbytes:(int)sizeof(apSsidBytes)];
@@ -45,7 +45,7 @@
         NSData *apBssidData = [ESP_NetUtil parseBssid2bytes:apBssid];
         int apBssidDataLen = (int)[apBssidData length];
         Byte apBssidBytes[apBssidDataLen];
-        [apBssidData getBytes:apBssidBytes];
+        [apBssidData getBytes:apBssidBytes length:1024];
         [crc updateWithBuf:apBssidBytes Nbytes:apBssidDataLen];
         UInt8 apBssidCrc = [crc getValue];
         
@@ -54,7 +54,7 @@
         // only support ipv4 at the moment
         UInt8 ipLen = [ipAddrData length];
         Byte ipAddrUint8s[ipLen];
-        [ipAddrData getBytes:ipAddrUint8s];
+        [ipAddrData getBytes:ipAddrUint8s length:1024];
         
         UInt8 _totalLen = EXTRA_HEAD_LEN + ipLen + apPwdLen + apSsidLen;
         UInt8 totalLen = isSsidHidden ? (EXTRA_HEAD_LEN + ipLen + apPwdLen + apSsidLen):(EXTRA_HEAD_LEN + ipLen + apPwdLen);

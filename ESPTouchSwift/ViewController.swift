@@ -59,11 +59,11 @@ class ViewController: UIViewController, ESPTouchControllerDelegate {
     @IBAction func onChangeIsHidden(_ sender: Any) {
         if(self.isHiddenSwitch.isOn){
             self.ssidInputText.isUserInteractionEnabled = true;
-            self.ssidInputText.borderStyle =  UITextBorderStyle.roundedRect;
+            self.ssidInputText.borderStyle =  UITextField.BorderStyle.roundedRect;
         }
         else {
             self.ssidInputText.isUserInteractionEnabled = false;
-            self.ssidInputText.borderStyle =  UITextBorderStyle.none;
+            self.ssidInputText.borderStyle =  UITextField.BorderStyle.none;
         }
     }
     
@@ -80,19 +80,19 @@ class ViewController: UIViewController, ESPTouchControllerDelegate {
         super.viewDidLoad()
         self.isHiddenSwitch.setOn(false, animated: true);
         self.ssidInputText.isUserInteractionEnabled = false;
-        self.ssidInputText.borderStyle =  UITextBorderStyle.none;
+        self.ssidInputText.borderStyle =  UITextField.BorderStyle.none;
         self.hideKeyboardWhenTappedAround() ;
     }
    
     func showAlertWithResult(title : String,  message: String){
         
         alertController = UIAlertController(title: title, message:
-            message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel,handler: {
+            message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel,handler: {
             action in self.espController.interruptESP()
         }))
         
-        self.okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil)
+        self.okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil)
         if let ok = self.okAction {
             ok.isEnabled = false
             alertController.addAction(ok)
