@@ -34,7 +34,7 @@ class ViewController: UIViewController, ESPTouchControllerDelegate {
         if(resultCount >= 1 ){
             self.resultCount = self.resultCount + 1
             self.alertController.title = "\(self.resultCount) ESP\(self.resultCount > 1 ? "(s)" :" ") connected"
-            self.messageResult  += "\(bssid) - ip: \(ip)\n";
+            self.messageResult  += "\(String(describing: bssid)) - ip: \(String(describing: ip))\n";
             self.alertController.message = self.messageResult;
         }
     }

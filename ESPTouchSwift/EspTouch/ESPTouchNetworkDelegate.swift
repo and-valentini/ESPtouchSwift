@@ -23,7 +23,7 @@ class ESPTouchNetworkDelegate : NSObject {
     
     func fetchNetInfo()->NSDictionary?
     {
-        let interfaceNames: NSArray = CNCopySupportedInterfaces()!
+        let interfaceNames: NSArray = CNCopySupportedInterfaces() ?? []
         
         var SSIDInfo : NSDictionary?
         for interfaceName in interfaceNames {

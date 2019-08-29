@@ -68,7 +68,9 @@
 		156AB6361FFD0918004A60E3 /* ESPTouchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchResult.h; sourceTree = "<group>"; };
 		15DAE91E1FFD342600E710F7 /* ESPTouchDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESPTouchDelegate.h; sourceTree = "<group>"; };
 		15DAE91F1FFD37A200E710F7 /* ESPVersionMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESPVersionMacro.h; sourceTree = "<group>"; };
+		1E8E615587F0C3CAEF05900C /* Pods_ESPTouchSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESPTouchSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8190D1620A4B5A000802DCC /* ESPTouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchController.swift; sourceTree = "<group>"; };
+		D8871CFA21CD07190060376A /* ESPTouchSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ESPTouchSwift.entitlements; sourceTree = "<group>"; };
 		D8A1D24120A5D709003B9BA8 /* ESPTouchControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchControllerDelegate.swift; sourceTree = "<group>"; };
 		D8A1D24320A5D785003B9BA8 /* ESPTouchNetworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPTouchNetworkDelegate.swift; sourceTree = "<group>"; };
 		D8C6E9D020AB266100E3E225 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		156AB5FF1FFD062B004A60E3 /* ESPTouchSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D8871CFA21CD07190060376A /* ESPTouchSwift.entitlements */,
 				D8C6E9D020AB266100E3E225 /* Reachability.swift */,
 				15DAE9251FFD38DE00E710F7 /* EspTouch */,
 				156AB6001FFD062B004A60E3 /* AppDelegate.swift */,
@@ -199,6 +202,7 @@
 		D8A8C88220A4C9A3003B9F9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E8E615587F0C3CAEF05900C /* Pods_ESPTouchSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 156AB60F1FFD062B004A60E3 /* Build configuration list for PBXNativeTarget "ESPTouchSwift" */;
 			buildPhases = (
+				DEE81B0CAF0B13B47A1066CC /* [CP] Check Pods Manifest.lock */,
 				156AB5F91FFD062B004A60E3 /* Sources */,
 				156AB5FA1FFD062B004A60E3 /* Frameworks */,
 				156AB5FB1FFD062B004A60E3 /* Resources */,
+				67A7D0B98F4B9AB6821133B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +243,14 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -270,6 +284,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67A7D0B98F4B9AB6821133B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+			showEnvVarsInLog = 0;
+		};
+		DEE81B0CAF0B13B47A1066CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		156AB5F91FFD062B004A60E3 /* Sources */ = {
@@ -436,12 +489,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ESPTouchSwift/ESPTouchSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WFYLQW6N2D;
 				INFOPLIST_FILE = ESPTouchSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.and-valentini.ESPTouchSwift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.and-valentini.ESPTouchSwiftiOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ESPTouchSwift/ESPTouch/ESPTouchSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -455,12 +509,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ESPTouchSwift/ESPTouchSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WFYLQW6N2D;
 				INFOPLIST_FILE = ESPTouchSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.and-valentini.ESPTouchSwift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.and-valentini.ESPTouchSwiftiOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ESPTouchSwift/ESPTouch/ESPTouchSwift-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
